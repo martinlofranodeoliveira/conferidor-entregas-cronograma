@@ -6,7 +6,7 @@ Confira entregas parciais por item, unidades pendentes e registros recebidos ap�
 
 Abra a [demonstração](https://martinlofranodeoliveira.github.io/conferidor-entregas-cronograma/). Para uso local, execute `python3 -m http.server 8000` no diretório e abra `http://localhost:8000`.
 
-Informe asOf, schedule com id, expected e dueDate, e deliveries com id, quantity e receivedOn.
+Escolha a data da conferência e preencha o cronograma e os recebimentos. Use o mesmo identificador em cada item e nas entregas relacionadas. Clique em **Conferir cronograma** para localizar pendências, atrasos e excedentes. O relatório está disponível em CSV.
 
 ## Contrato público
 
