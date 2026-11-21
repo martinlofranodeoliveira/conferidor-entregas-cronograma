@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; worker-src 'self'; connect-src 'none'; img-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<title>Conferidor de Entregas por Cronograma</title>
+<link rel="stylesheet" href="./style.css"><script type="module" src="./app.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#editor">Ir para a ferramenta</a>
+<main>
+  <header><p class="brand"><span></span> LOFRANO <small>Laboratório de software</small></p>
+    <div class="hero"><p class="sector">Logística e recebimento</p><h1>Conferidor de Entregas por Cronograma</h1><p>Confira entregas parciais por item, unidades pendentes e registros recebidos após o prazo previsto.</p></div>
+  </header>
+  <div class="workspace">
+    <section class="panel">
+      <h2>Dados de entrada</h2>
+      <p class="help" id="instructions">Informe asOf, schedule com id, expected e dueDate, e deliveries com id, quantity e receivedOn.</p>
+      
+      <label for="editor">Dados em JSON</label>
+      <textarea id="editor" spellcheck="false" rows="15" aria-describedby="instructions">{
+  &quot;asOf&quot;: &quot;2025-04-08&quot;,
+  &quot;deliveries&quot;: [
+    {
+      &quot;id&quot;: &quot;a&quot;,
+      &quot;quantity&quot;: 6,
+      &quot;receivedOn&quot;: &quot;2025-04-03&quot;
+    },
+    {
+      &quot;id&quot;: &quot;a&quot;,
+      &quot;quantity&quot;: 2,
+      &quot;receivedOn&quot;: &quot;2025-04-05&quot;
+    }
+  ],
+  &quot;schedule&quot;: [
+    {
+      &quot;dueDate&quot;: &quot;2025-04-04&quot;,
+      &quot;expected&quot;: 12,
+      &quot;id&quot;: &quot;a&quot;
+    },
+    {
+      &quot;dueDate&quot;: &quot;2025-04-08&quot;,
+      &quot;expected&quot;: 9,
+      &quot;id&quot;: &quot;b&quot;
+    }
+  ]
+}</textarea>
+      <div class="buttons"><button type="button" id="run">Conferir dados</button><button type="button" id="reset" class="quiet">Restaurar exemplo</button></div>
+    </section>
+    <section class="panel output" aria-labelledby="output-title">
+      <div class="top"><h2 id="output-title">Resultado</h2><button type="button" id="download" class="quiet" disabled>Exportar JSON</button></div>
+      <p role="status" id="status">Execute a ferramenta para conferir os dados.</p>
+      <dl id="stats"></dl><div id="result"></div>
+    </section>
+  </div>
+  <footer>Exemplo fictício. O processamento acontece neste navegador. Conferências técnicas apoiam o trabalho da equipe responsável.</footer>
+</main>
+</body>
+</html>
